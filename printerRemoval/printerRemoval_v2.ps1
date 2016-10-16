@@ -12,10 +12,7 @@ If it looks like nothing happened, probably it didn't find any matching printers
 """
 #grabs printer via WMI object and deletes it
 function deletePrinter($byePrinter) {
-    #write-host $byePrinter
     $a = Get-WmiObject -Class Win32_Printer | Where { $_.name -like $byePrinter }
-    #$a = get-wmiobject -query "SELECT * FROM win32_printer WHERE name = '`$byePrinter'"
-    #write-host $a
     $a.delete()
 }
 
